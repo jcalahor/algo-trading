@@ -1,0 +1,8 @@
+db:
+  mysql:
+    host: tradingdatadb.cgrssmagpfje.us-east-1.rds.amazonaws.com
+    user: admin
+    password: 2pass22pass2
+    database: trading
+polygon:
+  key: 'aUqxWkQlaINproPtYYOjkqVpLaBTp8FX'
