@@ -6,7 +6,9 @@ from model.revenue import Revenue
 import argparse
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename=f'revenue_loader_{str(os.getpid())}.log',
+                    filemode = 'w', format='%(asctime)s -  %(levelname)s - %(message)s',
+                    level=logging.INFO)
 
 def load_config():
     cfg = None
