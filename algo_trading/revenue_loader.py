@@ -4,9 +4,12 @@ from polygon import RESTClient
 from repository.mysql_db import MysqlDB
 from model.revenue import Revenue
 import argparse
+import os
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename=f'revenue_loader_{str(os.getpid())}.log',
+                    filemode = 'w', format='%(asctime)s -  %(levelname)s - %(message)s',
+                    level=logging.INFO)
 
 def load_config():
     cfg = None
