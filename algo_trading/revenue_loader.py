@@ -4,6 +4,7 @@ from polygon import RESTClient
 from repository.mysql_db import MysqlDB
 from model.revenue import Revenue
 import argparse
+import os
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename=f'revenue_loader_{str(os.getpid())}.log',
