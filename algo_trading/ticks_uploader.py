@@ -65,7 +65,10 @@ def upload_ticks(cfg, pol_client, low_limit, top_limit, from_date, to_date):
                 j = j + 1
             except Exception as e:
                 logger.error(e)
-        my_sql.insert_ticks(ticks)    
+        try:
+            my_sql.insert_ticks(ticks)
+        except Exception as e:
+            logger.error(e)
     logger.info("starting ...")
     db_cfg = cfg['db']
     db_cfg = db_cfg['mysql']
@@ -83,6 +86,8 @@ def upload_ticks(cfg, pol_client, low_limit, top_limit, from_date, to_date):
     logger.info("Finishing ...")
 
 def run():
+    # example:
+    # python3 algo_trading/ticks_uploader.py --low_limit 0 --top_limit 6000 --from_date 2023-01-01 --to_date 2023-06-07
     parser = argparse.ArgumentParser()
     parser.add_argument('--low_limit', type=int)
     parser.add_argument('--top_limit', type=int)
